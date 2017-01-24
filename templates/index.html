@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="shortcut icon"
+    href="/icons/favicon.ico">
+  <script src="/js/index.js" charset="utf-8"></script>
+  <title>Theater</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Home Theater</h2>
+      <a href="#" id="drop">
+        <img src="/icons/ic_arrow_drop_up_black_24dp_2x.png"
+          alt="drop" class="icon" id="icon">
+      </a>
+    </div>
+    <div class="main-content">
+      <video id="video" class="video" controls autoplay>
+        <source id="video-source">
+      </video>
+      {% for movie in movies %}
+      <div class="card movie-link">
+        <a href="/movie/{{ movie }}">{{ movie }}</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="footer">
+      <p>Create By Joseph</p>
+    </div>
+  </div>
+</body>
+</html>
