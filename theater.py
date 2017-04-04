@@ -55,9 +55,12 @@ def movie(movie):
     length = byte2 - byte1
 
   data = None
+  print('request for movie %s from %d...' % (movies[movie], byte1))
   with open(movies[movie], 'rb') as f:
+    print('seeking')
     f.seek(byte1)
     data = f.read(length)
+  print('prepare response')
   res = Response(data, 206, mimetype='video/mp4', direct_passthrough=True)
   res.headers.add('Content-Range', 'bytes %d-%d/%d' %
       (byte1, byte1 + length - 1, total_size))
